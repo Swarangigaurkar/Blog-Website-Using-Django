@@ -1,0 +1,78 @@
+<html lang="en-us"><head>
+    <title>User Registration</title>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+      <link rel="stylesheet" type="text/css" href="/static/admin/css/nav_sidebar.css">
+      <script src="/static/admin/js/nav_sidebar.js" defer=""></script>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/login.css">
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+    <meta name="robots" content="NONE,NOARCHIVE">
+    </head>
+    <body class=" login" data-admin-utc-offset="0">
+    <!-- Container -->
+    <div id="container">
+        <!-- Header -->
+        <div id="header">
+            <div id="branding">    
+    <h1 id="site-name"><a href=""></a>User Registration</h1>
+            </div>  
+        </div>
+        <!-- END Header -->
+        <div class="main shifted" id="main"> 
+          <div class="content">
+            <!-- Content -->
+            <div id="content" class="colM">
+    <div id="content-main">
+    <form action="register" method="post" >
+      {% csrf_token %}
+      <div class="form-row">  
+        <label class="required" for="id_username">Username:</label> <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="100" required="" id="id_username">
+        <input type="hidden" name="next" value="/admin/">
+      </div>
+      <div class="form-row">  
+        <label class="required" for="id_fname">First Name:</label> <input type="text" name="fname" autofocus="" autocapitalize="none" autocomplete="fname" maxlength="100" required="" id="id_fname">
+        <input type="hidden" name="next" value="/admin/">
+      </div>
+      <div class="form-row">  
+        <label class="required" for="id_lname">Last Name:</label> <input type="text" name="lname" autofocus="" autocapitalize="none" autocomplete="lname" maxlength="100" required="" id="id_lname">
+        <input type="hidden" name="next" value="/admin/">
+      </div>
+      <div class="form-row">  
+        <label class="required" for="id_email">Email:</label> <input type="email" name="emaill" autofocus="" autocapitalize="none" autocomplete="email" maxlength="100" required="" id="id_email">
+        <input type="hidden" name="next" value="/admin/">
+      </div>
+      <div class="form-row"> 
+        <label class="required" for="id_password">Password:</label> <input type="password" name="passwords" autocomplete="current-password" required="" id="id_password">
+        <input type="hidden" name="next" value="/admin/">
+      </div>
+      <div class="form-row"> 
+        <label class="required" for="id_confirmpassword">Confirm Password:</label> <input type="password" name="confirmpassword" autocomplete="confirm-password" required="" id="id_confirmpassword">
+        <input type="hidden" name="next" value="/admin/">
+      </div>
+      
+      
+      <div class="submit-row">
+        <input type="submit" value="Register">
+      </div>
+    </form>
+    
+    </div>
+    
+              
+              <br class="clear">
+            </div>
+            <!-- END Content -->
+            <div id="footer"></div>
+          </div>
+        </div>
+    </div>
+    <!-- END Container -->
+  <div>
+    {%for message in messages%}
+    <h4>{{message}}</h4>
+    {%endfor%}
+  </div>
+    
+    
+    
+    </body></html>

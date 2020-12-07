@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+{% for p in post %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <h1>{% block title %} {{ p.title }} {% endblock title %}</h1>
+        <p class=" text-muted">{{ p.uname }} | {{ p.createdon }}</p>
+        <p class="card-text">{{p.content|slice:":200" }}</p>
+        <form action="editpost" method="post">
+          {% csrf_token %}
+          {{ form }}
+          <input type="hidden" name="pid" value="{{p.id}}">
+          <input type="submit" class="btn btn-primary" value="Edit -->" />
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock content %}

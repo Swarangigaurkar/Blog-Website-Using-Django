@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block content %}
+{% for p in post %}
+    <span class="border border-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 card mb-8">
+        <form action="puborsaveeditpost" method="post">
+            {% csrf_token %}
+            <div></div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Title</label>
+              <input type="text" class="form-control" name="title" id="exampleFormControlInput1" value="{{p.title}}">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Blog Content</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="14">{{p.content}}</textarea>
+            </div>
+            <input type="hidden" name="pid" value="{{p.id}}">
+            <input type="submit"  class="btn btn-secondary" value="Save" name="save" />
+            <input type="submit" class="btn btn-primary" value="Publish" name="publish" />
+          </form>
+        
+        </div>
+        </div>
+        </div>
+        
+        <div>
+            {%for message in messages%}
+            <h4>{{message}}</h4>
+            {%endfor%}
+          </div>
+        </span>
+{% endfor %}
+{% endblock content %}
